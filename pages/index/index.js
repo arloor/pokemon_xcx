@@ -47,6 +47,7 @@ Page({
       url: "https://pokemon.arloor.com:8080/api/pokemon",
       data:body,
       method:"POST",
+      timeout:500,
       header:{
         "content-type": "application/json; charset=utf-8"
       },
