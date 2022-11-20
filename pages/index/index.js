@@ -44,15 +44,15 @@ Page({
     });
     var that=this
     wx.request({
-      url: "https://sg.arloor.dev/ip",
+      url: "https://pokemon.arloor.com:8080/api/pokemon",
       data:body,
-      dataType:"other",
+      method:"POST",
       header:{
         "content-type": "application/json; charset=utf-8"
       },
       success: function (res) {
         that.setData({
-          result: res.data
+          result: res.data.msg
         })
       }
     })
