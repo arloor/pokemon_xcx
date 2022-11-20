@@ -1,0 +1,54 @@
+<!--index.wxml-->
+
+<view class="page">
+  <view class="page__bd">
+    <form bindsubmit="modify" bindreset="formReset" report-submit='true'>
+
+      <view class="weui-cells__title">对手宝可梦属性：</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view wx:for="{{pickIndexs}}" class="weui-cell weui-cell_input weui-cell_vcode">
+          <view class="weui-cell__hd">
+            <view class="weui-label">属性{{index}}</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" data-index="{{index}}" value="{{item}}" range="{{tagNames}}">
+              <button type="default" style='background-color: #FFFFFF;'>{{tagNames[item.index]}}</button>
+            </picker>
+          </view>
+          <view class="weui-cell__bd">
+            <view class="weui-cell__ft">
+                    <switch checked="{{item.isTaijing}}" data-index="{{index}}" bindchange="taijing"></switch>
+                </view>
+          </view>
+        </view>
+
+
+        <view class="weui-cells weui-cells_after-title">
+    <view class="weui-cell">
+      <view class="weui-cell__bd">
+        <textarea class="weui-textarea" name="pinfo" value='{{result}}' placeholder="属性建议" style="height: 3.3em" />
+      </view>
+    </view>
+  </view>
+
+      </view>
+    </form>
+    <view class="container">
+      <view class="button-sp-area" style='position:fixed;bottom:0;margin-bottom: 1rem;'>
+        <view style='display: flex;justify-content: center;align-items: center;'>
+          <view class="weui-flex__item" style="padding: 0.5rem;">
+            <view class="weui-btn weui-btn_mini weui-btn_default weui-wa-hotarea" aria-role="button" bindtap="addIndex">增加属性</view>
+          </view>
+          <view class="weui-flex__item" style="padding: 0.5rem;">
+            <view class="weui-btn weui-btn_mini weui-btn_warn weui-wa-hotarea" aria-role="button" bindtap="clearIndex">清空属性</view>
+          </view>
+          <view class="weui-flex__item" style="padding: 0.5rem;">
+            <view class="weui-btn weui-btn_mini weui-btn_primary weui-wa-hotarea" aria-role="button" bindtap="submit">查询结果</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+</view>
